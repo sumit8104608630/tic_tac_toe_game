@@ -1,4 +1,5 @@
 //console.log(div)
+
 let grid=document.querySelector(".grid")
 let button=document.querySelector(".btn")
 
@@ -27,9 +28,12 @@ console.log(arr)
      boxes.classList.add("row")
      boxes.onclick=function handel_click(el){
          let id=el.target.id
+        if(arr[id]!=null) return
          arr[id]=current_element 
          boxes.innerHTML=current_element
-         checking_winner()
+         //checking_winner()
+          checking_winner()
+         
          current_element=current_element==="x"?"o":"x"
          
      }
@@ -62,10 +66,18 @@ function checking_winner(){
      arr[0]!==null&&arr[0]==arr[4]&&arr[4]==arr[8]||
      arr[2]!==null&&arr[2]==arr[4]&&arr[4]==arr[6]
  ){
-  alert(`${current_element} is Winner`)
-  window.location.reload()
+    alert("winner is "+current_element)
+    window.location.reload()
  }
+ else{
+    if(!(arr.some((e)=> e===null ))){
+        alert("Draw")
+        window.location.reload()
+     }
+ }
+
 }
+
 
 
 
@@ -98,6 +110,7 @@ console.log(arr)
             arr[id]=current_element 
             boxes.innerHTML=current_element
             checking_winner()
+           
             current_element=current_element==="x"?"o":"x"
             
         }
@@ -133,6 +146,12 @@ console.log(arr)
      alert(`${current_element} is Winner`)
      window.location.reload()
     }
+    else{
+        if(!(arr.some((e)=> e===null ))){
+            alert("Draw")
+            window.location.reload()
+         }
+     }
  }
 
 
@@ -192,6 +211,12 @@ console.log(arr)
          alert(`${current_element} is Winner`)
          window.location.reload()
         }
+        else{
+            if(!(arr.some((e)=> e===null ))){
+                alert("Draw")
+                window.location.reload()
+             }
+         }
      }
   }
   else if(n===5){
@@ -248,6 +273,12 @@ console.log(arr)
          alert(`${current_element} is Winner`)
          window.location.reload()
         }
+        else{
+            if(!(arr.some((e)=> e===null ))){
+                alert("Draw")
+                window.location.reload()
+             }
+         }
      }
 
 
@@ -256,12 +287,4 @@ console.log(arr)
  
 })
 
-
-
-
-
-
-function my_iterator(start,end,step){
-
-}
 
